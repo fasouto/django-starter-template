@@ -49,7 +49,6 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__) + "../../")
 # Add the app code to the path
 #sys.path.append(PROJECT_ROOT)
 
-os.environ['CELERY_LOADER'] = 'django'
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "{{ project_name }}.settings")
 
 # This application object is used by any WSGI server configured to use this
