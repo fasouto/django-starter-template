@@ -1,0 +1,10 @@
+# Basic stuff
+Django==1.6.5
+South==0.8.4
+
+# Templates
+django_compressor
+
+# Database
+psycopg2
+#MySQL-python

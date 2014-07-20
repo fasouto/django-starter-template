@@ -1,0 +1,4 @@
+# Heroku expects the requirements file at the root of the repo
+# https://devcenter.heroku.com/articles/python-pip#the-basics
+
+-r requirements/production.txt

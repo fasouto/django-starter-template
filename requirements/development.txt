@@ -1,0 +1,14 @@
+-r base.txt
+
+django-debug-toolbar
+
+# Deployment
+Fabric
+
+# Documentation
+Sphinx
+
+# Testing
+coverage
+pep8
+pylint

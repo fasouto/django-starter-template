@@ -1,0 +1,41 @@
+## Python
+*.py[co]
+*.egg*
+.coverage
+
+## Project
+local_settings.py
+/public/static
+/public/media
+
+## SQLite3
+*.db
+
+## OS
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+## Sphinx
+build
+
+## Logs
+*.log
+
+## Editors and IDEs
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+.idea/
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+.buildpath
+.project
+.settings
+.pydevproject
