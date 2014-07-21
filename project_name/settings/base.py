@@ -184,14 +184,8 @@ LOGGING = {
 
 
 ## DJANGO DEBUG TOOLBAR SETTINGS
-def custom_show_toolbar(request):
-    """ Only show the debug toolbar to users with the superuser flag. """
-    return request.user.is_superuser
-
-
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
-    'SHOW_TOOLBAR_CALLBACK': custom_show_toolbar,
     'HIDE_DJANGO_SQL': True,
     'TAG': 'body',
     'SHOW_TEMPLATE_CONTEXT': True,
