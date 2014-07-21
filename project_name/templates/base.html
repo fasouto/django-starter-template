@@ -1,4 +1,4 @@
-{% load compress %}
+{% templatetag openblock %} load compress {% templatetag closeblock %}
 
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -10,26 +10,26 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>{% block page_title %}{{ _("My Site") }}{% endblock %}</title>
-  <meta name="description" content="{% block meta_description %}{% endblock %}">
-  <meta name="author" content="{% block meta_author %}{% endblock %}">
+  <title>{% templatetag openblock %} block page_title {% templatetag closeblock %}{{ _("My Site") }}{% templatetag openblock %} endblock {% templatetag closeblock %}</title>
+  <meta name="description" content="{% templatetag openblock %} block meta_description {% templatetag closeblock %}{% templatetag openblock %} endblock {% templatetag closeblock %}">
+  <meta name="author" content="{% templatetag openblock %} block meta_author {% templatetag closeblock %}{% templatetag openblock %} endblock {% templatetag closeblock %}">
 
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
   <meta name="viewport" content="width=device-width">
 
-  {% compress css %}
+  {% templatetag openblock %} compress css {% templatetag closeblock %}
   <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
-  {% block css %}{% endblock %}
-  {% endcompress %}
+  {% templatetag openblock %} block css {% templatetag closeblock %}{% templatetag openblock %} endblock {% templatetag closeblock %}
+  {% templatetag openblock %} endcompress {% templatetag closeblock %}
 
-  {% compress js %}
-  {% endcompress %}
+  {% templatetag openblock %} compress js {% templatetag closeblock %}
+  {% templatetag openblock %} endcompress {% templatetag closeblock %}
 </head>
-<body class="{% block body_class %}{% endblock %}">
-{% block body %}
+<body>
+{% templatetag openblock %} block body {% templatetag closeblock %}
 
   <div role="main">
-    {% block content %}{% endblock %}
+    {% templatetag openblock %} block content {% templatetag closeblock %}{% templatetag openblock %} endblock {% templatetag closeblock %}
   </div>
 
   <footer>
@@ -41,9 +41,9 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 
-  {% compress js %}
+  {% templatetag openblock %} compress js {% templatetag closeblock %}
     <script src="{{ STATIC_URL }}js/app.js"></script>
-  {% endcompress %}
+  {% templatetag openblock %} endcompress {% templatetag closeblock %}
 
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID -->
   <script>
@@ -52,6 +52,6 @@
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
-{% endblock %}
+{% templatetag openblock %} endblock {% templatetag closeblock %}
 </body>
 </html>
