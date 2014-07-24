@@ -14,7 +14,6 @@ urlpatterns = patterns('',
     # Admin
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    #url(r'^', include('debug_toolbar_user_panel.urls')),
 )
 
 if settings.DEBUG:
