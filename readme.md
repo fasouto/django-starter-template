@@ -24,6 +24,10 @@ And finally to install the dependencies
 
     $ pip install -r requirements/development.txt
 
+Once installed to run the development server in http://localhost:8000/
+
+    $ python manage.py runserver
+
 ## Why? ##
 This project template was created in order to be simple and make development faster for my clients. It follows django best practices. There are other django project templates:
 
