@@ -22,7 +22,7 @@ To create a new Django project
 
 And finally to install the dependencies
 
-   $ pip install -r requirements/development.txt
+    $ pip install -r requirements/development.txt
 
 ## Why? ##
 This project template was created in order to be simple and make development faster for my clients. It follows django best practices. There are other django project templates:
