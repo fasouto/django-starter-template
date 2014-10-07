@@ -5,8 +5,8 @@
 
 ## Project
 local_settings.py
-/public/static
-/public/media
+public/static
+public/media
 
 ## SQLite3
 *.db
