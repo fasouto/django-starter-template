@@ -24,7 +24,11 @@ And finally to install the dependencies
 
     $ pip install -r requirements/development.txt
 
-Once installed to run the development server in http://localhost:8000/
+If you need a database, edit the settings file and create one with
+   
+    $ pip manage.py syncdb
+
+Once everything is setup to run the development server in http://localhost:8000/
 
     $ python manage.py runserver
 
