@@ -1,2 +1,0 @@
-- Fabfile
-- Heroku deployment (.procfile, S3 settings...)
