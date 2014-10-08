@@ -1,6 +1,7 @@
 """
 Basic fabfile for django projects
 """
+from fabric.api import *
 
 def virtualenv(venv_dir):
     """
