@@ -14,11 +14,11 @@ And then activate it:
 
 You'll need to activate your virtualenv every time you want to run the project. To install Django in the new virtualenvironment
 
-    $ pip install django==1.6
+    $ pip install django==1.8
 
 To create a new Django project
 
-    $ django-admin.py startproject --template=https://github.com/fsouto/django-starter-template/archive/master.zip --extension=py,md,html,txt project_name
+    $ django-admin.py startproject --template=https://github.com/fasouto/django-starter-template/archive/master.zip --extension=py,md,html,txt project_name
 
 And finally to install the dependencies
 
