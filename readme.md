@@ -2,6 +2,10 @@
 
 A project template for Django 1.8
 
+## Features ##
+
+	- [Django compressor](http://django-compressor.readthedocs.org/en/latest/)
+
 ## Usage ##
 
 First you need to create a working environment with [virtualenv](http://www.virtualenv.org/).

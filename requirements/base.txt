@@ -7,3 +7,6 @@ django_compressor
 # Database
 psycopg2
 #MySQL-python
+
+# Bcrypt passwords
+bcrypt
