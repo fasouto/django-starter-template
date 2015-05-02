@@ -5,6 +5,7 @@ from django.conf.urls import include, patterns, url
 from django.conf.urls.static import static
 from django.contrib import admin
 
+from django.views.generic.base import TemplateView
 
 sitemaps = {
 	# Fill me with sitemaps
@@ -22,6 +23,8 @@ urlpatterns = patterns('',
 
     # Sitemap
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
+    # robots.txt
+    url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
 )
 
 if settings.DEBUG:
