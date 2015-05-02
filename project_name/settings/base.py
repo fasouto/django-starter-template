@@ -22,6 +22,8 @@ ALLOWED_HOSTS = []
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-INSTALLED_APPS
 INSTALLED_APPS = (
+    'flat', # django-flat-theme must be BEFORE contrib.admin
+
     # Django apps
     'django.contrib.auth',
     'django.contrib.contenttypes',
