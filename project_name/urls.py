@@ -3,8 +3,13 @@
 from django.conf import settings
 from django.conf.urls import include, patterns, url
 from django.conf.urls.static import static
-
 from django.contrib import admin
+
+
+sitemaps = {
+	# Fill me with sitemaps
+}
+
 admin.autodiscover()
 
 
@@ -14,6 +19,9 @@ urlpatterns = patterns('',
     # Admin
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+
+    # Sitemap
+    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
 )
 
 if settings.DEBUG:
