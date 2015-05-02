@@ -16,18 +16,19 @@ First create and activate your virtualenv, you can use [virtualenvwrapper](https
 
     pip install django==1.8
 
-To create a new Django project
+To create a new Django project (make sure to change `project_name`)
 
     django-admin.py startproject --template=https://github.com/fasouto/django-starter-template/archive/master.zip --extension=py,md,html,txt project_name
 
-And finally to install the dependencies
+cd to your project and install the dependences
 
     pip install -r requirements/development.txt
 
-If you need a database, edit the settings file and create one with
+If you need a database, edit the settings and create one with
    
     python manage.py syncdb
+    python manage.py migrate
 
-Once everything is setup to run the development server in http://localhost:8000/
+Once everything it's setup you can run the development server: [http://localhost:8000/](http://localhost:8000/)
 
     python manage.py runserver
