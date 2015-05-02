@@ -17,7 +17,7 @@ path.append(BASE_DIR)
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 
-# https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+# https://docs.djangoproject.com/en/1.8/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-INSTALLED_APPS

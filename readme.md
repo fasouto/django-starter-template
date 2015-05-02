@@ -1,6 +1,6 @@
 # django-starter-template #
 
-A project template for Django 1.6.
+A project template for Django 1.8
 
 ## Usage ##
 
