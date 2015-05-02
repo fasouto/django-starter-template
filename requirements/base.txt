@@ -1,6 +1,5 @@
 # Basic stuff
-Django==1.6.5
-South==0.8.4
+Django==1.8
 
 # Templates
 django_compressor

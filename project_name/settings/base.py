@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     # Third party apps
     'debug_toolbar',
     'compressor',
-    'south',
 
     # Local apps
     'base',
