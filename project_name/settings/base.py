@@ -7,10 +7,17 @@ from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
 
-## SITE PATH
-# Build paths inside the project like this: join(BASE_DIR, ...)
+## PATHS
+# Path containing the django project
 BASE_DIR = dirname(dirname(__file__))
 path.append(BASE_DIR)
+
+# Path of the top level directory. This directory contains the django project, apps, libs, etc...
+PROJECT_ROOT = dirname(BASE_DIR)
+
+# Add apps and libs to the PROJECT_ROOT
+path.append(os.path.join(PROJECT_ROOT, "apps"))
+path.append(os.path.join(PROJECT_ROOT, "libs"))
 
 
 ## SITE SETTINGS
@@ -37,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Third party apps
-    'debug_toolbar',
     'compressor',
 
     # Local apps
@@ -65,21 +71,6 @@ TEMPLATE_DEBUG = DEBUG
 # https://docs.djangoproject.com/en/1.8/ref/settings/#internal-ips
 INTERNAL_IPS = ('127.0.0.1')
 
-
-## DATABASE SETTINGS
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
-}
-
-
 ## LOCALE SETTINGS
 # Local time zone for this installation. 
 # https://docs.djangoproject.com/en/1.8/ref/settings/#time-zone
@@ -101,7 +92,7 @@ USE_TZ = True
 ## MEDIA AND STATIC SETTINGS
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # https://docs.djangoproject.com/en/1.8/ref/settings/#media-root
-MEDIA_ROOT = join(BASE_DIR, 'public/media')
+MEDIA_ROOT = join(PROJECT_ROOT, 'public/media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a trailing slash.
 # https://docs.djangoproject.com/en/1.8/ref/settings/#media-url
@@ -111,7 +102,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # https://docs.djangoproject.com/en/1.8/ref/settings/#static-root
-STATIC_ROOT = join(BASE_DIR, 'public/static')
+STATIC_ROOT = join(PROJECT_ROOT, 'public/static')
 
 # URL prefix for static files.
 # https://docs.djangoproject.com/en/1.8/ref/settings/#static-url
@@ -170,20 +161,8 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
-## WSGI SETTINGS
-# https://docs.djangoproject.com/en/1.8/ref/settings/#wsgi-application
-WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
-
-
-## NOTIFICATIONS AND LOGGING
-# A tuple that lists people who get code error notifications.
-# https://docs.djangoproject.com/en/1.8/ref/settings/#admins
-ADMINS = (
-    ('Your Name', 'your_email@example.com'),
-)
-MANAGERS = ADMINS
-
+# LOGGING
+# https://docs.djangoproject.com/en/1.8/topics/logging/
 LOGGING = {
     'version': 1,
     'loggers': {
@@ -192,28 +171,3 @@ LOGGING = {
         }
     }
 }
-
-
-## DJANGO DEBUG TOOLBAR SETTINGS
-DEBUG_TOOLBAR_CONFIG = {
-    'INTERCEPT_REDIRECTS': False,
-    'HIDE_DJANGO_SQL': True,
-    'TAG': 'body',
-    'SHOW_TEMPLATE_CONTEXT': True,
-    'ENABLE_STACKTRACES': True,
-}
-
-DEBUG_TOOLBAR_PANELS = (
-    'debug_toolbar.panels.versions.VersionsPanel',
-    'debug_toolbar.panels.timer.TimerPanel',
-    'debug_toolbar.panels.settings.SettingsPanel',
-    'debug_toolbar.panels.headers.HeadersPanel',
-    'debug_toolbar.panels.request.RequestPanel',
-    'debug_toolbar.panels.sql.SQLPanel',
-    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
-    'debug_toolbar.panels.templates.TemplatesPanel',
-    'debug_toolbar.panels.cache.CachePanel',
-    'debug_toolbar.panels.signals.SignalsPanel',
-    'debug_toolbar.panels.logging.LoggingPanel',
-    'debug_toolbar.panels.redirects.RedirectsPanel',
-)
