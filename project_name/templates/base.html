@@ -18,10 +18,14 @@
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
   <meta name="viewport" content="width=device-width">
 
-  {% templatetag openblock %} compress css {% templatetag closeblock %}
-  <link rel="stylesheet" href="{% templatetag openblock %} static 'css/base.css' {% templatetag closeblock %}">
-  {% templatetag openblock %} block css {% templatetag closeblock %}{% templatetag openblock %} endblock {% templatetag closeblock %}
-  {% templatetag openblock %} endcompress {% templatetag closeblock %}
+  {% templatetag openblock %} if debug {% templatetag closeblock %}
+    <link rel="stylesheet/less" href="{% templatetag openblock %} static 'less/app.less' {% templatetag closeblock %}">
+    <script type="text/javascript" src="{% templatetag openblock %} static 'js/libs/less.min.js' {% templatetag closeblock %}"></script>
+  {% templatetag openblock %} else {% templatetag closeblock %}
+    {% templatetag openblock %} compress css {% templatetag closeblock %}
+    <link rel="stylesheet" type="text/less" media="all" href="{% templatetag openblock %} static 'less/app.less' {% templatetag closeblock %}">
+    {% templatetag openblock %} endcompress {% templatetag closeblock %}
+  {% templatetag openblock %} endif {% templatetag closeblock %}
 
   {% templatetag openblock %} compress js {% templatetag closeblock %}
   {% templatetag openblock %} endcompress {% templatetag closeblock %}
@@ -38,7 +42,7 @@
   <script>window.jQuery || document.write('<script src="/static/js/libs/jquery-1.11.2.min.js"><\/script>')</script>
 
   {% templatetag openblock %} compress js {% templatetag closeblock %}
-    <script src="{{ STATIC_URL }}js/app.js"></script>
+    <script src="{% templatetag openblock %} static 'js/app.js' {% templatetag closeblock %}"></script>
   {% templatetag openblock %} endcompress {% templatetag closeblock %}
 
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID -->

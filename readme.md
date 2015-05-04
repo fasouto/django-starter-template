@@ -17,7 +17,7 @@ First create and activate your virtualenv, you can use [virtualenvwrapper](https
 
 To create a new Django project (make sure to change `project_name`)
 
-    django-admin.py startproject --template=https://github.com/fasouto/django-starter-template/archive/master.zip --extension=py,md,html,txt project_name
+    django-admin.py startproject --template=https://github.com/fasouto/django-starter-template/archive/master.zip --extension=py,md,html,txt,less project_name
 
 cd to your project and install the dependences
 
@@ -48,4 +48,6 @@ If you need to add some settings that are specific for your machine, rename the 
 
 ### Bootstrap ###
 
-[Bootstrap 3](http://getbootstrap.com/css/#less) LESS files are included and compiled with django_compressor. There's an extra file `app.less` where you should put your CSS instead of override bootstrap LESS files, so you can update bootstrap easily.
+[Bootstrap 3](http://getbootstrap.com/css/#less) LESS files are included and compiled with django_compressor. There's an  file `less/app.less` where you should put your CSS to avoid overriding the bootstrap LESS files, so you can update bootstrap easily.
+
+Make sure you have [lessc](http://lesscss.org/#using-less-installation) installed on your production server, for development it uses less.js.
