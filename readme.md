@@ -44,4 +44,4 @@ If you need to add some settings that are specific for your machine, rename the 
 
 ### Bootstrap ###
 
-[Bootstrap 3](http://getbootstrap.com/css/#less) LESS files are included and compiled with django_compressor. There's an extra file ´app.less´ where you should put your CSS instead of override bootstrap LESS files, so you can update bootstrap easily.
+[Bootstrap 3](http://getbootstrap.com/css/#less) LESS files are included and compiled with django_compressor. There's an extra file `app.less` where you should put your CSS instead of override bootstrap LESS files, so you can update bootstrap easily.
