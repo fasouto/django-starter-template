@@ -21,7 +21,7 @@ SITE_ID = 1
 ALLOWED_HOSTS = []
 
 # https://docs.djangoproject.com/en/1.8/ref/settings/#installed-apps
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'flat', # django-flat-theme must be BEFORE contrib.admin
 
     # Django apps
@@ -42,7 +42,7 @@ INSTALLED_APPS = (
 
     # Local apps
     'base',
-)
+]
 
 # https://docs.djangoproject.com/en/1.8/topics/auth/passwords/#using-bcrypt-with-django
 PASSWORD_HASHERS = (
