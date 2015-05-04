@@ -5,7 +5,7 @@ if you need to override something do it in local.pt
 
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
-
+import os
 
 ## PATHS
 # Path containing the django project
