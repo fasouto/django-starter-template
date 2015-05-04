@@ -14,13 +14,13 @@ path.append(BASE_DIR)
 
 
 ## SITE SETTINGS
-# https://docs.djangoproject.com/en/dev/ref/settings/#site-id
+# https://docs.djangoproject.com/en/1.8/ref/settings/#site-id
 SITE_ID = 1
 
 # https://docs.djangoproject.com/en/1.8/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-INSTALLED_APPS
+# https://docs.djangoproject.com/en/1.8/ref/settings/#installed-apps
 INSTALLED_APPS = (
     'flat', # django-flat-theme must be BEFORE contrib.admin
 
@@ -56,18 +56,18 @@ PASSWORD_HASHERS = (
 )
 
 ## DEBUG SETTINGS
-# https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-DEBUG
+# https://docs.djangoproject.com/en/1.8/ref/settings/#debug
 DEBUG = False
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
+# https://docs.djangoproject.com/en/1.8/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#internal-ips
+# https://docs.djangoproject.com/en/1.8/ref/settings/#internal-ips
 INTERNAL_IPS = ('127.0.0.1')
 
 
 ## DATABASE SETTINGS
-# https://docs.djangoproject.com/en/dev/ref/settings/#databases
+# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.',
@@ -82,55 +82,55 @@ DATABASES = {
 
 ## LOCALE SETTINGS
 # Local time zone for this installation. 
-# https://docs.djangoproject.com/en/dev/ref/settings/#time-zone
+# https://docs.djangoproject.com/en/1.8/ref/settings/#time-zone
 TIME_ZONE = 'America/Los_Angeles'
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#language-code
+# https://docs.djangoproject.com/en/1.8/ref/settings/#language-code
 LANGUAGE_CODE = 'en-us'
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
+# https://docs.djangoproject.com/en/1.8/ref/settings/#use-i18n
 USE_I18N = True
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#use-l10n
+# https://docs.djangoproject.com/en/1.8/ref/settings/#use-l10n
 USE_L10N = True
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
+# https://docs.djangoproject.com/en/1.8/ref/settings/#use-tz
 USE_TZ = True
 
 
 ## MEDIA AND STATIC SETTINGS
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-# https://docs.djangoproject.com/en/dev/ref/settings/#media-root
+# https://docs.djangoproject.com/en/1.8/ref/settings/#media-root
 MEDIA_ROOT = join(BASE_DIR, 'public/media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a trailing slash.
-# https://docs.djangoproject.com/en/dev/ref/settings/#media-url
+# https://docs.djangoproject.com/en/1.8/ref/settings/#media-url
 MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# https://docs.djangoproject.com/en/dev/ref/settings/#static-root
+# https://docs.djangoproject.com/en/1.8/ref/settings/#static-root
 STATIC_ROOT = join(BASE_DIR, 'public/static')
 
 # URL prefix for static files.
-# https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+# https://docs.djangoproject.com/en/1.8/ref/settings/#static-url
 STATIC_URL = '/static/'
 
 # Additional locations of static files
-# https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
+# https://docs.djangoproject.com/en/1.8/ref/settings/#staticfiles-dirs
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    join(BASE_DIR, 'static'),
 )
 
-# https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
+# https://docs.djangoproject.com/en/1.8/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
 ## TEMPLATE SETTINGS
-# https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
+# https://docs.djangoproject.com/en/1.8/ref/settings/#template-context-processors
 TEMPLATE_CONTEXT_PROCESSORS = [
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',
@@ -142,12 +142,12 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.contrib.messages.context_processors.messages',
 ]
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
+# https://docs.djangoproject.com/en/1.8/ref/settings/#template-dirs
 TEMPLATE_DIRS = (
     join(BASE_DIR, 'templates'),
 )
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
+# https://docs.djangoproject.com/en/1.8/ref/settings/#template-loaders
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
@@ -155,12 +155,12 @@ TEMPLATE_LOADERS = (
 
 
 ## URL SETTINGS
-# https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf.
+# https://docs.djangoproject.com/en/1.8/ref/settings/#root-urlconf.
 ROOT_URLCONF = '{{ project_name }}.urls'
 
 
 ## MIDDLEWARE SETTINGS
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#middleware-classes
+# See: https://docs.djangoproject.com/en/1.8/ref/settings/#middleware-classes
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -172,13 +172,13 @@ MIDDLEWARE_CLASSES = (
 
 
 ## WSGI SETTINGS
-# https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
+# https://docs.djangoproject.com/en/1.8/ref/settings/#wsgi-application
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 
 ## NOTIFICATIONS AND LOGGING
 # A tuple that lists people who get code error notifications.
-# https://docs.djangoproject.com/en/dev/ref/settings/#admins
+# https://docs.djangoproject.com/en/1.8/ref/settings/#admins
 ADMINS = (
     ('Your Name', 'your_email@example.com'),
 )

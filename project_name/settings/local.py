@@ -5,7 +5,7 @@ These settings overrides the ones in settings/base.py
 from . import base
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# https://docs.djangoproject.com/en/dev/ref/settings/#secret-key 
+# https://docs.djangoproject.com/en/1.8/ref/settings/#secret-key 
 SECRET_KEY = '=*5!+@8asd2q@1c1=17t*69j@8lapj#0i60mt5tpdv8$-#nj-r+'
 
 DATABASES = {

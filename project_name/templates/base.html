@@ -1,3 +1,4 @@
+{% templatetag openblock %} load static {% templatetag closeblock %}
 {% templatetag openblock %} load compress {% templatetag closeblock %}
 
 <!doctype html>
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width">
 
   {% templatetag openblock %} compress css {% templatetag closeblock %}
-  <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+  <link rel="stylesheet" href="{% templatetag openblock %} static 'css/base.css' {% templatetag closeblock %}">
   {% templatetag openblock %} block css {% templatetag closeblock %}{% templatetag openblock %} endblock {% templatetag closeblock %}
   {% templatetag openblock %} endcompress {% templatetag closeblock %}
 
