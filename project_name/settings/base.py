@@ -143,9 +143,9 @@ TEMPLATE_CONTEXT_PROCESSORS = [
 ]
 
 # https://docs.djangoproject.com/en/1.8/ref/settings/#template-dirs
-TEMPLATE_DIRS = (
+TEMPLATE_DIRS = [
     join(BASE_DIR, 'templates'),
-)
+]
 
 # https://docs.djangoproject.com/en/1.8/ref/settings/#template-loaders
 TEMPLATE_LOADERS = (
@@ -161,14 +161,14 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 
 ## MIDDLEWARE SETTINGS
 # See: https://docs.djangoproject.com/en/1.8/ref/settings/#middleware-classes
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
+]
 
 
 ## WSGI SETTINGS
