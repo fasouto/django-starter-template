@@ -52,3 +52,13 @@ If you need to add some settings that are specific for your machine, rename the 
 [Bootstrap 3](http://getbootstrap.com/css/#less) LESS files are included and compiled with django_compressor. There's an  file `less/app.less` where you should put your CSS to avoid overriding the bootstrap LESS files, so you can update bootstrap easily.
 
 Make sure you have [lessc](http://lesscss.org/#using-less-installation) installed on your production server, for development it uses less.js.
+
+### Dependencies ###
+
+There are some [requirements files](https://pip.readthedocs.org/en/1.1/requirements.html) separated by environments (development and production), the requirements.txt in the root folder is needed for Heroku and only installs the production dependencies. In development you should install requirements/development.txt
+
+    pip install -r requirements/development.txt
+
+Remember to add the packages you install in your virtual environment to the appropiate requirements file.
+
+If you have trouble/can't install a package place it in the /libs directory.
