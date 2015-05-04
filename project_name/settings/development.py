@@ -30,6 +30,9 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 ## DJANGO DEBUG TOOLBAR SETTINGS
 # https://django-debug-toolbar.readthedocs.org
+def show_toolbar(request):
+    return not request.is_ajax() and request.user and request.user.is_superuser
+
 MIDDLEWARE_CLASSES += ["debug_toolbar.middleware.DebugToolbarMiddleware",]
 INSTALLED_APPS += ["debug_toolbar",]
 
@@ -39,6 +42,7 @@ DEBUG_TOOLBAR_CONFIG = {
     'TAG': 'body',
     'SHOW_TEMPLATE_CONTEXT': True,
     'ENABLE_STACKTRACES': True,
+    'SHOW_TOOLBAR_CALLBACK': '{{ project_name }}.settings.development.show_toolbar',
 }
 
 DEBUG_TOOLBAR_PANELS = (
