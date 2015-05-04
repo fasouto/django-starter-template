@@ -34,8 +34,8 @@
   </div>
 
   <!-- Google CDN jQuery with a local fallback -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/static/js/libs/jquery-1.11.2.min.js"><\/script>')</script>
 
   {% templatetag openblock %} compress js {% templatetag closeblock %}
     <script src="{{ STATIC_URL }}js/app.js"></script>
