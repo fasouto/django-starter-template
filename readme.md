@@ -5,7 +5,7 @@ An easy to use project template for Django 1.8 that follows best practices.
 ## Features ##
 
 - [Django compressor](http://django-compressor.readthedocs.org/en/latest/) to compress JS and CSS and compile LESS/SASS files.
-- [Django debug toolbar](http://django-debug-toolbar.readthedocs.org/) enabled for admins.
+- [Django debug toolbar](http://django-debug-toolbar.readthedocs.org/) enabled for superusers.
 - [Bcrypt](https://docs.djangoproject.com/en/1.8/topics/auth/passwords/#using-bcrypt-with-django) to hash the passwords
 - [Django flat theme](https://github.com/elky/django-flat-theme) to style the admin.
 - A [fabfile](http://www.fabfile.org/) to ease the deployment.
