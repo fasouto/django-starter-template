@@ -44,7 +44,6 @@ or you can use the `settings` param with runserver:
 
     python manage.py runserver --settings=my_project.settings.production
 
-
 If you need to add some settings that are specific for your machine, rename the file `local_example.py` to `local_settings.py`. This file it's in .gitignore so the changes won't be tracked.
 
 ### Bootstrap ###
