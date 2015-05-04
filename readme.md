@@ -61,4 +61,4 @@ There are some [requirements files](https://pip.readthedocs.org/en/1.1/requireme
 
 Remember to add the packages you install in your virtual environment to the appropiate requirements file.
 
-If you have trouble/can't install a package place it in the /libs directory.
+If you have trouble/can't install a package place it in the `/libs` directory.
