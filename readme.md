@@ -1,6 +1,6 @@
 # django-starter-template #
 
-An opinionated but easy to use project template for Django 1.8
+An easy to use project template for Django 1.8 that follows best practices.
 
 ## Features ##
 
@@ -8,6 +8,7 @@ An opinionated but easy to use project template for Django 1.8
 - [Django debug toolbar](http://django-debug-toolbar.readthedocs.org/) enabled for admins.
 - [Bcrypt](https://docs.djangoproject.com/en/1.8/topics/auth/passwords/#using-bcrypt-with-django) to hash the passwords
 - [Django flat theme](https://github.com/elky/django-flat-theme) to style the admin.
+- A [fabfile](http://www.fabfile.org/) to ease the deployment.
 
 ## Quickstart ##
 
