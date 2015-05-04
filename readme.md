@@ -38,7 +38,7 @@ Once everything it's setup you can run the development server: [http://localhost
 
 Settings are divided by environments: production.py, development.py and testing.py. By default it uses development.py, if you want to change the environment set a environment variable:
 
-    export DJANGO_SETTINGS_MODULE=“my_project.settings.production”
+    export DJANGO_SETTINGS_MODULE="my_project.settings.production"
 
 or you can use the `settings` param with runserver:
 
