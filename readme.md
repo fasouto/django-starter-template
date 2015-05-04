@@ -36,9 +36,14 @@ Once everything it's setup you can run the development server: [http://localhost
 
 ### Settings ###
 
-Settings are divided by environments: production, development and testing. By default it uses the development ones, if you want to change them 
+Settings are divided by environments: production.py, development.py and testing.py. By default it uses development.py, if you want to change the environment set a environment variable:
 
     export DJANGO_SETTINGS_MODULE=“my_project.settings.production”
+
+or you can use the `settings` param with runserver:
+
+    python manage.py runserver --settings=my_project.settings.production
+
 
 If you need to add some settings that are specific for your machine, rename the file `local_example.py` to `local.py`. This file it's in .gitignore so the changes won't be tracked.
 
