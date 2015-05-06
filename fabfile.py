@@ -84,9 +84,7 @@ def update_bootstrap(tag=None):
         if not exists(parent_path):
             run('mkdir -p %s' % parent_path)
 
-        # Pull down updates
         with cd(local_path):
-
             # Since django-admin.py startproject remove the hidden dirs (like .git/) we need 
             # to add the remote the first time
             if not exists(os.path.join(local_path, '.git')):
@@ -94,7 +92,6 @@ def update_bootstrap(tag=None):
                 run('git remote add origin git@github.com:twbs/bootstrap.git')
 
             run('git pull origin master')
-
             # Checkout to tag if specified
             if tag:
                 run('git checkout {0}'.format(tag))
@@ -180,16 +177,16 @@ def collectstatic():
 @task
 def first_deployment_mode():
     """
-    Use before first deployment to switch on fake south migrations.
+    Use before first deployment to switch on fake migrations.
     """
     env.initial_deploy = True
 
 
 @task
-def south_migrations(app=None):
+def run_migrations(app=None):
     """
-    Run the south migrations to the database
-    Usage: fab south_migrations:app_name
+    Run the migrations to the database
+    Usage: fab run_migrations:app_name
     """
     with virtualenv(env.virtualenv):
         with cd(env.code_dir):
@@ -235,6 +232,6 @@ def deploy():
         webserver_stop()
     push_sources()
     install_dependencies()
-    south_migrations()
+    run_migrations()
     collectstatic()
     webserver_start()
