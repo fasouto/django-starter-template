@@ -18,7 +18,7 @@ DATABASES = {
 }
 
 
-SECRET_KEY = os.environ['DJANGO_SETTINGS_MODULE']
+SECRET_KEY = os.environ['SECRET_KEY']
 
 ## WSGI SETTINGS
 # https://docs.djangoproject.com/en/1.8/ref/settings/#wsgi-application
