@@ -34,3 +34,10 @@ if settings.DEBUG:
 
     # Serve media files through Django.
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    # Show error pages during development
+    urlpatterns += patterns('',
+        url(r'^403/$', 'django.views.defaults.permission_denied'),
+        url(r'^404/$', 'django.views.defaults.page_not_found'),
+        url(r'^500/$', 'django.views.defaults.server_error')
+    )
