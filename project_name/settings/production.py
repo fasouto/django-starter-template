@@ -16,8 +16,8 @@ DATABASES = {
     },
 }
 
-# IMPORTANT!: 
-# You must keep this secret, you can store it in an 
+# IMPORTANT!:
+# You must keep this secret, you can store it in an
 # environment variable and set it with:
 # export SECRET_KEY="phil-dunphy98!-bananas12"
 # https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/#secret-key

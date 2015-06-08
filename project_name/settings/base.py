@@ -1,5 +1,5 @@
 """
-Project main settings file. These settings are common to the project 
+Project main settings file. These settings are common to the project
 if you need to override something do it in local.pt
 """
 
@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 # https://docs.djangoproject.com/en/1.8/ref/settings/#installed-apps
 INSTALLED_APPS = [
-    'flat', # django-flat-theme must be BEFORE contrib.admin
+    'flat',  # django-flat-theme must be BEFORE contrib.admin
 
     # Django apps
     'django.contrib.admin',
@@ -70,7 +70,7 @@ DEBUG = False
 INTERNAL_IPS = ('127.0.0.1')
 
 ## LOCALE SETTINGS
-# Local time zone for this installation. 
+# Local time zone for this installation.
 # https://docs.djangoproject.com/en/1.8/ref/settings/#time-zone
 TIME_ZONE = 'America/Los_Angeles'
 

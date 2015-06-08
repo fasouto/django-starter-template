@@ -27,13 +27,14 @@ CACHES = {
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+
 ## DJANGO DEBUG TOOLBAR SETTINGS
 # https://django-debug-toolbar.readthedocs.org
 def show_toolbar(request):
     return not request.is_ajax() and request.user and request.user.is_superuser
 
-MIDDLEWARE_CLASSES += ["debug_toolbar.middleware.DebugToolbarMiddleware",]
-INSTALLED_APPS += ["debug_toolbar",]
+MIDDLEWARE_CLASSES += ["debug_toolbar.middleware.DebugToolbarMiddleware", ]
+INSTALLED_APPS += ["debug_toolbar", ]
 
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,

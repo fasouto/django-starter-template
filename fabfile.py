@@ -66,6 +66,7 @@ def ensure_src_dir():
         if not exists(posixpath.join(env.code_dir, '.git')):
             run('git clone %s .' % (env.code_repo))
 
+
 @task
 def update_bootstrap(tag=None):
     """
@@ -74,9 +75,7 @@ def update_bootstrap(tag=None):
 
     Taken from: https://lextoumbourou.com/blog/posts/integrating-bootstrap-django-using-less-and-fabric/
     """
-    repo = 'https://github.com/twitter/bootstrap'
-    parent_path = os.path.join(os.path.dirname(__file__),
-                             '{{ project_name }}/static/vendor')
+    parent_path = os.path.join(os.path.dirname(__file__), '{{ project_name }}/static/vendor')
     local_path = os.path.join(parent_path, 'bootstrap')
 
     with settings(warn_only=True):
@@ -85,7 +84,7 @@ def update_bootstrap(tag=None):
             run('mkdir -p %s' % parent_path)
 
         with cd(local_path):
-            # Since django-admin.py startproject remove the hidden dirs (like .git/) we need 
+            # Since django-admin.py startproject remove the hidden dirs (like .git/) we need
             # to add the remote the first time
             if not exists(os.path.join(local_path, '.git')):
                 run('git init')
@@ -95,6 +94,7 @@ def update_bootstrap(tag=None):
             # Checkout to tag if specified
             if tag:
                 run('git checkout {0}'.format(tag))
+
 
 @task
 def push_sources():
@@ -122,8 +122,8 @@ def version():
 
 @task
 def test():
-    """ 
-    Prints information about the host. 
+    """
+    Prints information about the host.
     Use it to check if env configuration is ok.
     """
     run("uname -a")
