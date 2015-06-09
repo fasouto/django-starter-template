@@ -2,14 +2,14 @@
 django==1.8.2
 
 # Templates
-django_compressor
+django-compressor==1.5
 
 # Database
-psycopg2
-#MySQL-python
+psycopg2==2.6
+#MySQL-python==1.2.5
 
 # Admin styling
-django-flat-theme
+django-flat-theme==0.9.3
 
 # Bcrypt passwords
-bcrypt
+bcrypt==1.1.1
