@@ -1,5 +1,5 @@
 # Basic stuff
-django==1.8.2
+django==1.8.3
 
 # Templates
 django-compressor==1.5
