@@ -4,6 +4,7 @@ An easy to use project template for Django 1.8 that follows best practices.
 
 ## Features ##
 
+- Compatible with python 2.7 and 3.4
 - [Django compressor](http://django-compressor.readthedocs.org/en/latest/) to compress JS and CSS and compile LESS/SASS files.
 - [Django debug toolbar](http://django-debug-toolbar.readthedocs.org/) enabled for superusers.
 - [Bcrypt](https://docs.djangoproject.com/en/1.8/topics/auth/passwords/#using-bcrypt-with-django) to hash the passwords
