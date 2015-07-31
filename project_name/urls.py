@@ -21,10 +21,19 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Sitemap
-    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.index', {'sitemaps': sitemaps}),
-    url(r'^sitemap-(?P<section>.+)\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
+    url(r'^sitemap\.xml$',
+        'django.contrib.sitemaps.views.index',
+        {'sitemaps': sitemaps}),
+    url(r'^sitemap-(?P<section>.+)\.xml$',
+        'django.contrib.sitemaps.views.sitemap',
+        {'sitemaps': sitemaps}),
+
     # robots.txt
-    url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
+    url(r'^robots\.txt$',
+        TemplateView.as_view(
+            template_name='robots.txt',
+            content_type='text/plain')
+        ),
 )
 
 if settings.DEBUG:

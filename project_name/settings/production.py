@@ -31,7 +31,7 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 # A tuple that lists people who get code error notifications.
 # https://docs.djangoproject.com/en/1.8/ref/settings/#admins
 ADMINS = (
-#    ('Your Name', 'your_email@example.com'),
+         ('Your Name', 'your_email@example.com'),
 )
 MANAGERS = ADMINS
 

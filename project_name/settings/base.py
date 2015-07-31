@@ -13,7 +13,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 path.append(BASE_DIR)
 
-# Path of the top level directory. This directory contains the django project, apps, libs, etc...
+# Path of the top level directory.
+# This directory contains the django project, apps, libs, etc...
 PROJECT_ROOT = os.path.dirname(BASE_DIR)
 
 # Add apps and libs to the PROJECT_ROOT
@@ -92,7 +93,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/ref/settings/#media-root
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'public/media')
 
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a trailing slash.
+# URL that handles the media served from MEDIA_ROOT. Use a trailing slash.
 # https://docs.djangoproject.com/en/1.8/ref/settings/#media-url
 MEDIA_URL = '/media/'
 
