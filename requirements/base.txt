@@ -1,15 +1,15 @@
 # Basic stuff
-django==1.8.3
+django==1.8.5
 
 # Templates
 django-compressor==1.5
 
 # Database
-psycopg2==2.6
+psycopg2==2.6.1
 #MySQL-python==1.2.5
 
 # Admin styling
-django-flat-theme==0.9.3
+django-flat-theme==1.1.1
 
 # Bcrypt passwords
 bcrypt==1.1.1
