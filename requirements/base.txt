@@ -1,5 +1,5 @@
 # Basic stuff
-django==1.8.6
+django==1.10
 
 # Templates
 django-appconf==1.0.1

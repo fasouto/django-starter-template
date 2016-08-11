@@ -1,6 +1,6 @@
 # django-starter-template #
 
-An easy to use project template for Django 1.8 that follows best practices.
+An easy to use project template for Django 1.10 that follows best practices.
 
 ## Features ##
 
@@ -15,7 +15,7 @@ An easy to use project template for Django 1.8 that follows best practices.
 
 First create and activate your virtualenv, you can use [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/). Then install Django 1.8 in your virtualenv:
 
-    pip install django==1.8.6
+    pip install django==1.10
 
 To create a new Django project (make sure to change `project_name`)
 
