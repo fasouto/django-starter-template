@@ -23,7 +23,7 @@ To create a new Django project (make sure to change `project_name`)
 
 cd to your project and install the dependences
 
-    pip install -r requirements/development.txt
+    pip install -r requirements.txt
 
 If you need a database, edit the settings and create one with
    
@@ -56,10 +56,6 @@ Make sure you have [lessc](http://lesscss.org/#using-less-installation) installe
 
 ### Dependencies ###
 
-There are some [requirements files](https://pip.readthedocs.org/en/1.1/requirements.html) separated by environments (development and production), the requirements.txt in the root folder is needed for Heroku and only installs the production dependencies. In development you should install requirements/development.txt
-
-    pip install -r requirements/development.txt
-
-Remember to add the packages you install in your virtual environment to the appropiate requirements file.
+We are following [Kenneth Reitz's pip workflow](http://www.kennethreitz.org/essays/a-better-pip-workflow) to handle [requirements files](https://pip.readthedocs.org/en/1.1/requirements.html). The `requirements_to_freeze.txt` contains unpinned requirements and `requirements.txt` contains the pinned versions to use in a deployment.
 
 If you have trouble/can't install a package place it in the `/libs` directory.
