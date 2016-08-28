@@ -148,6 +148,7 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 ## MIDDLEWARE SETTINGS
 # See: https://docs.djangoproject.com/en/1.10/ref/settings/#middleware-classes
 MIDDLEWARE_CLASSES = [
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
