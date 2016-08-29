@@ -1,0 +1,31 @@
+# Based on http://www.kennethreitz.org/essays/a-better-pip-workflow
+
+django
+
+# Templates
+django-appconf
+django-compressor
+
+# Database
+psycopg2
+#MySQL-python
+
+# Admin styling
+django-flat-theme
+
+# Bcrypt passwords
+bcrypt
+
+# DEVELOPMENT REQUIREMENTS
+django-debug-toolbar
+
+# Deployment
+Fabric
+
+# Documentation
+Sphinx
+
+# Testing
+coverage
+pep8
+pylint

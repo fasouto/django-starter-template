@@ -4,7 +4,7 @@ from .base import *
 DEBUG = False
 
 ## DATABASE SETTINGS
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.',
@@ -20,7 +20,7 @@ DATABASES = {
 # You must keep this secret, you can store it in an
 # environment variable and set it with:
 # export SECRET_KEY="phil-dunphy98!-bananas12"
-# https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/#secret-key
+# https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/#secret-key
 SECRET_KEY = os.environ['SECRET_KEY']
 
 ## WSGI SETTINGS
@@ -29,7 +29,7 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 ## NOTIFICATIONS
 # A tuple that lists people who get code error notifications.
-# https://docs.djangoproject.com/en/1.8/ref/settings/#admins
+# https://docs.djangoproject.com/en/1.10/ref/settings/#admins
 ADMINS = (
          ('Your Name', 'your_email@example.com'),
 )
