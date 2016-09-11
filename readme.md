@@ -27,7 +27,6 @@ cd to your project and install the dependences
 
 If you need a database, edit the settings and create one with
    
-    python manage.py syncdb
     python manage.py migrate
 
 Once everything it's setup you can run the development server: [http://localhost:8000/](http://localhost:8000/)
