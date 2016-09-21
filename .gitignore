@@ -9,7 +9,7 @@ public/static
 public/media
 
 ## SQLite3
-*.db
+*.sqlite3
 
 ## OS
 .DS_Store
