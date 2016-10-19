@@ -13,7 +13,7 @@ An easy to use project template for Django 1.10 that follows best practices.
 
 ## Quickstart ##
 
-First create and activate your virtualenv, you can use [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/). Then install Django 1.8 in your virtualenv:
+First create and activate your virtualenv, you can use [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/). Then install Django 1.10 in your virtualenv:
 
     pip install django==1.10
 
