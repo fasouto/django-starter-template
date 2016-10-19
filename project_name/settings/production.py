@@ -24,7 +24,7 @@ DATABASES = {
 SECRET_KEY = os.environ['SECRET_KEY']
 
 ## WSGI SETTINGS
-# https://docs.djangoproject.com/en/1.8/ref/settings/#wsgi-application
+# https://docs.djangoproject.com/en/1.10/ref/settings/#wsgi-application
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 ## NOTIFICATIONS
