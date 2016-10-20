@@ -38,12 +38,14 @@ urlpatterns = [
 
 if settings.DEBUG:
     # Add debug-toolbar
-    import debug_toolbar  #noqa
+    import debug_toolbar  # noqa
     urlpatterns.append(url(r'^__debug__/', include(debug_toolbar.urls)))
 
     # Serve media files through Django.
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
 
     # Show error pages during development
     urlpatterns += [

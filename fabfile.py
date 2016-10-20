@@ -8,7 +8,8 @@ from fabric.api import run, local, env, settings, cd, task
 from fabric.contrib.files import exists
 from fabric.operations import _prefix_commands, _prefix_env_vars, sudo
 
-# Set to true if you can restart your webserver (via wsgi.py), false to stop/start your webserver
+# Set to true if you can restart your webserver (via wsgi.py),
+# false to stop/start your webserver
 DJANGO_SERVER_RESTART = False
 
 # EDIT THIS INFORMATION
@@ -22,9 +23,7 @@ env.code_repo = ''
 env.django_settings_module = ''
 
 # Python version
-PYTHON_BIN = "python2.7"
-PYTHON_PREFIX = ""  # e.g. /usr/local  Use "" for automatic
-PYTHON_FULL_PATH = "%s/bin/%s" % (PYTHON_PREFIX, PYTHON_BIN) if PYTHON_PREFIX else PYTHON_BIN
+PYTHON_BIN = "python3.4"
 
 
 def virtualenv(venv_dir):
@@ -59,6 +58,7 @@ def ensure_virtualenv():
         run("echo %s > %s/lib/%s/site-packages/projectsource.pth" %
             (env.project_dir, env.virtualenv, PYTHON_BIN))
 
+
 def ensure_src_dir():
     if not exists(env.code_dir):
         run("mkdir -p %s" % env.code_dir)
@@ -72,10 +72,9 @@ def update_bootstrap(tag=None):
     """
     Update Bootstrap files to tag version. If a tag isn't specified just
     get latest version.
-
-    Taken from: https://lextoumbourou.com/blog/posts/integrating-bootstrap-django-using-less-and-fabric/
     """
-    parent_path = os.path.join(os.path.dirname(__file__), '{{ project_name }}/static/vendor')
+    parent_path = os.path.join(os.path.dirname(__file__),
+                               '{{ project_name }}/static/vendor')
     local_path = os.path.join(parent_path, 'bootstrap')
 
     with settings(warn_only=True):
@@ -84,8 +83,8 @@ def update_bootstrap(tag=None):
             run('mkdir -p %s' % parent_path)
 
         with cd(local_path):
-            # Since django-admin.py startproject remove the hidden dirs (like .git/) we need
-            # to add the remote the first time
+            # Since django-admin.py startproject remove the
+            # hidden dirs (like .git/) we need to add the remote the first time
             if not exists(os.path.join(local_path, '.git')):
                 run('git init')
                 run('git remote add origin git@github.com:twbs/bootstrap.git')
