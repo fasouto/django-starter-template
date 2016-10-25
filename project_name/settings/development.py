@@ -1,4 +1,4 @@
-from .base import *
+from .base import *  # noqa
 
 DEBUG = True
 
@@ -6,7 +6,7 @@ INTERNAL_IPS = ["127.0.0.1"]
 
 SECRET_KEY = "secret"
 
-## DATABASE SETTINGS
+# DATABASE SETTINGS
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 DATABASES = {
     'default': {
@@ -28,7 +28,7 @@ CACHES = {
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
-## DJANGO DEBUG TOOLBAR SETTINGS
+# DJANGO DEBUG TOOLBAR SETTINGS
 # https://django-debug-toolbar.readthedocs.org
 def show_toolbar(request):
     return not request.is_ajax() and request.user and request.user.is_superuser
@@ -61,6 +61,6 @@ DEBUG_TOOLBAR_PANELS = (
 )
 
 try:
-    from local_settings import *
+    from local_settings import * # noqa
 except ImportError:
     pass

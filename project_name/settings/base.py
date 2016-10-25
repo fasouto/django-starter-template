@@ -8,7 +8,7 @@ from sys import path
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-## PATHS
+# PATHS
 # Path containing the django project
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 path.append(BASE_DIR)
@@ -22,7 +22,7 @@ path.append(os.path.join(PROJECT_ROOT, "apps"))
 path.append(os.path.join(PROJECT_ROOT, "libs"))
 
 
-## SITE SETTINGS
+# SITE SETTINGS
 # https://docs.djangoproject.com/en/1.10/ref/settings/#site-id
 SITE_ID = 1
 
@@ -64,14 +64,14 @@ PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.CryptPasswordHasher',
 )
 
-## DEBUG SETTINGS
+# DEBUG SETTINGS
 # https://docs.djangoproject.com/en/1.10/ref/settings/#debug
 DEBUG = False
 
 # https://docs.djangoproject.com/en/1.10/ref/settings/#internal-ips
 INTERNAL_IPS = ('127.0.0.1')
 
-## LOCALE SETTINGS
+# LOCALE SETTINGS
 # Local time zone for this installation.
 # https://docs.djangoproject.com/en/1.10/ref/settings/#time-zone
 TIME_ZONE = 'America/Los_Angeles'
@@ -89,7 +89,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-## MEDIA AND STATIC SETTINGS
+# MEDIA AND STATIC SETTINGS
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # https://docs.djangoproject.com/en/1.10/ref/settings/#media-root
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'public/media')
@@ -120,7 +120,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-## TEMPLATE SETTINGS
+# TEMPLATE SETTINGS
 # https://docs.djangoproject.com/en/1.10/ref/settings/#templates
 TEMPLATES = [
     {
@@ -140,12 +140,12 @@ TEMPLATES = [
 ]
 
 
-## URL SETTINGS
+# URL SETTINGS
 # https://docs.djangoproject.com/en/1.10/ref/settings/#root-urlconf.
 ROOT_URLCONF = '{{ project_name }}.urls'
 
 
-## MIDDLEWARE SETTINGS
+# MIDDLEWARE SETTINGS
 # See: https://docs.djangoproject.com/en/1.10/ref/settings/#middleware-classes
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
