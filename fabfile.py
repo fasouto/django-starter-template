@@ -2,7 +2,6 @@
 Basic fabfile for django projects
 """
 import posixpath
-import os
 
 from fabric.api import run, local, env, settings, cd, task
 from fabric.contrib.files import exists
@@ -105,7 +104,7 @@ def webserver_stop():
     """
     Stop the webserver that is running the Django instance
     """
-    sudo("service apache2 stop")
+    sudo("service gunicorn stop")
 
 
 @task
@@ -113,7 +112,7 @@ def webserver_start():
     """
     Starts the webserver that is running the Django instance
     """
-    sudo("service apache2 start")
+    sudo("service gunicorn start")
 
 
 @task
@@ -143,14 +142,6 @@ def collectstatic():
             run_venv("./manage.py collectstatic --clear --noinput")
 
     run("chmod -R ugo+r %s" % env.static_root)
-
-
-@task
-def first_deployment_mode():
-    """
-    Use before first deployment to switch on fake migrations.
-    """
-    env.initial_deploy = True
 
 
 @task
