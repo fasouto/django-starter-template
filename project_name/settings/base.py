@@ -31,8 +31,6 @@ ALLOWED_HOSTS = []
 
 # https://docs.djangoproject.com/en/1.10/ref/settings/#installed-apps
 INSTALLED_APPS = [
-    'flat',  # django-flat-theme must be BEFORE contrib.admin
-
     # Django apps
     'django.contrib.admin',
     'django.contrib.admindocs',

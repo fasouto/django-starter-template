@@ -11,9 +11,6 @@ django-compressor
 psycopg2
 #MySQL-python
 
-# Admin styling
-django-flat-theme
-
 # Bcrypt passwords
 bcrypt
 
