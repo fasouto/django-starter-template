@@ -37,4 +37,5 @@ six==1.10.0
 snowballstemmer==1.2.1
 Sphinx==1.4.6
 sqlparse==0.2.1
+tox==2.4.1
 wrapt==1.10.8
