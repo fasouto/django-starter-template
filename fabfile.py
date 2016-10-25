@@ -68,34 +68,6 @@ def ensure_src_dir():
 
 
 @task
-def update_bootstrap(tag=None):
-    """
-    Update Bootstrap files to tag version. If a tag isn't specified just
-    get latest version.
-    """
-    parent_path = os.path.join(os.path.dirname(__file__),
-                               '{{ project_name }}/static/vendor')
-    local_path = os.path.join(parent_path, 'bootstrap')
-
-    with settings(warn_only=True):
-        # Create the source directory if it doesn't exist
-        if not exists(parent_path):
-            run('mkdir -p %s' % parent_path)
-
-        with cd(local_path):
-            # Since django-admin.py startproject remove the
-            # hidden dirs (like .git/) we need to add the remote the first time
-            if not exists(os.path.join(local_path, '.git')):
-                run('git init')
-                run('git remote add origin git@github.com:twbs/bootstrap.git')
-
-            run('git pull origin master')
-            # Checkout to tag if specified
-            if tag:
-                run('git checkout {0}'.format(tag))
-
-
-@task
 def push_sources():
     """
     Push source code to server
