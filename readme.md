@@ -58,3 +58,12 @@ Make sure you have [lessc](http://lesscss.org/#using-less-installation) installe
 We are following [Kenneth Reitz's pip workflow](http://www.kennethreitz.org/essays/a-better-pip-workflow) to handle [requirements files](https://pip.readthedocs.org/en/1.1/requirements.html). The `requirements_to_freeze.txt` contains unpinned requirements and `requirements.txt` contains the pinned versions to use in a deployment.
 
 If you have trouble/can't install a package place it in the `/libs` directory.
+
+
+### TODO ###
+ - Add webpack with live SASS reloading.
+ - Once we have webpack upgrade to bootstrap 4
+ - Add gitlab.ci
+ - Improve tox.ini
+ - Improve deployment, get rid of fabric. Investigate feasible options. Maybe add a deploy to heroku/docker cloud.
+ - Add some example code and tests.
