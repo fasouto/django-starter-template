@@ -152,15 +152,10 @@ def run_migrations(app=None):
     """
     with virtualenv(env.virtualenv):
         with cd(env.code_dir):
-            if getattr(env, 'initial_deploy', False):
-                run_venv("./manage.py syncdb --all")
-                run_venv("./manage.py migrate --fake --noinput")
+            if app:
+                run_venv("./manage.py migrate %s --noinput" % app)
             else:
-                run_venv("./manage.py syncdb --noinput")
-                if app:
-                    run_venv("./manage.py migrate %s --noinput" % app)
-                else:
-                    run_venv("./manage.py migrate --noinput")
+                run_venv("./manage.py migrate --noinput")
 
 
 @task
