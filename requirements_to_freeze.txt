@@ -27,5 +27,5 @@ Sphinx
 
 # Testing
 coverage
-pep8
-pylint
+flake8
+pytest
