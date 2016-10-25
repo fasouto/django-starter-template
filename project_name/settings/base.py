@@ -53,8 +53,9 @@ INSTALLED_APPS = [
     'base',
 ]
 
-# https://docs.djangoproject.com/en/1.10/topics/auth/passwords/#using-bcrypt-with-django
+# https://docs.djangoproject.com/en/1.10/topics/auth/passwords/#using-argon2-with-django
 PASSWORD_HASHERS = (
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
     'django.contrib.auth.hashers.BCryptPasswordHasher',
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',

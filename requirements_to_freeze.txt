@@ -1,6 +1,7 @@
 # Based on http://www.kennethreitz.org/essays/a-better-pip-workflow
 
 django
+argon2-cffi
 
 # Templates
 django-appconf
