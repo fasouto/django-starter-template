@@ -42,7 +42,7 @@ DEBUG_TOOLBAR_CONFIG = {
     'TAG': 'body',
     'SHOW_TEMPLATE_CONTEXT': True,
     'ENABLE_STACKTRACES': True,
-    'SHOW_TOOLBAR_CALLBACK': '{{ project_name }}.settings.development.show_toolbar',
+    'SHOW_TOOLBAR_CALLBACK': 'shaping_templeat.settings.development.show_toolbar',
 }
 
 DEBUG_TOOLBAR_PANELS = (

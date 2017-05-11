@@ -141,7 +141,7 @@ TEMPLATES = [
 
 # URL SETTINGS
 # https://docs.djangoproject.com/en/1.10/ref/settings/#root-urlconf.
-ROOT_URLCONF = '{{ project_name }}.urls'
+ROOT_URLCONF = 'shaping_templeat.urls'
 
 
 # MIDDLEWARE SETTINGS
@@ -161,7 +161,7 @@ MIDDLEWARE_CLASSES = [
 LOGGING = {
     'version': 1,
     'loggers': {
-        '{{ project_name }}': {
+        'shaping_templeat': {
             'level': "DEBUG"
         }
     }
