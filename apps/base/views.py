@@ -2,11 +2,6 @@
 
 from django.shortcuts import render
 
-
-def home(request):
-    """ Default view for the root """
-    return render(request, 'base/home.html')
-
 def index(request):
     """ Default view for the root """
-    return render(request, 'base/index.html')
+    return render(request, 'base/index.html',{'a':'2'})
