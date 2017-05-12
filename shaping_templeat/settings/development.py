@@ -8,16 +8,23 @@ SECRET_KEY = "secret"
 
 # DATABASE SETTINGS
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+DATABASE_NAME = 'st_DB'
+DATABASE_USERNAME = 'root'
+DATABASE_PASSWORD = 'root'
+DATABASE_ADDRESS = 'localhost'
+DATABASE_PORT = '3306'
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'development.sqlite3',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    },
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': DATABASE_NAME,
+        'USER': DATABASE_USERNAME,
+        'PASSWORD': DATABASE_PASSWORD,
+        'HOST': DATABASE_ADDRESS,
+        'PORT': DATABASE_PORT,
+    }
 }
+
 
 CACHES = {
     "default": {
@@ -42,7 +49,7 @@ DEBUG_TOOLBAR_CONFIG = {
     'TAG': 'body',
     'SHOW_TEMPLATE_CONTEXT': True,
     'ENABLE_STACKTRACES': True,
-    'SHOW_TOOLBAR_CALLBACK': '{{ project_name }}.settings.development.show_toolbar',
+    'SHOW_TOOLBAR_CALLBACK': 'shaping_templeat.settings.development.show_toolbar',
 }
 
 DEBUG_TOOLBAR_PANELS = (

@@ -1,0 +1,32 @@
+{% if user.is_authenticated %} {% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Shaping template</title>
+    <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/_bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/app.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div id="content"></div>
+
+    <script src="{% static 'js/libs/react/babel.js' %}"></script>
+    <script src="{% static 'js/libs/react/react.js' %}"></script>
+    <script src="{% static 'js/libs/react/react-dom.js' %}"></script>
+    <script src="{% static 'js/libs/jquery-1.11.2.min.js' %}"></script>
+    <script src="{% static 'js/libs/bootstrap/bootstrap.min.js' %}"></script>
+
+    <script type="text/babel" src="{% static 'js/app.js' %}"></script>
+
+</body>
+
+</html>
+
+{% endif %}

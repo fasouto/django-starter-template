@@ -1,5 +1,5 @@
 """
-WSGI config for {{ project_name }} project.
+WSGI config for shaping_templeat project.
 
 This module contains the WSGI application used by Django's development server
 and any production WSGI deployments. It should expose a module-level variable
@@ -24,7 +24,7 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__) + "../../")
 # sys.path.append(PROJECT_ROOT)
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE",
-                      "{{ project_name }}.settings.production")
+                      "shaping_templeat.settings.production")
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION

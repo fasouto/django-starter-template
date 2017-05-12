@@ -1,4 +1,4 @@
-""" Default urlconf for {{ project_name }} """
+""" Default urlconf for shaping_templeat """
 
 from django.conf import settings
 from django.conf.urls import include, url
