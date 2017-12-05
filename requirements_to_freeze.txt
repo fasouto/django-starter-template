@@ -1,6 +1,6 @@
 # Based on http://www.kennethreitz.org/essays/a-better-pip-workflow
 
-django==1.10.7
+django==2.0
 argon2-cffi
 
 # Templates

@@ -7,7 +7,7 @@ certifi==2017.11.5
 cffi==1.11.2
 chardet==3.0.4
 coverage==4.4.2
-Django==1.10.7
+Django==2.0
 django-appconf==1.0.2
 django-compressor==2.2
 django-debug-toolbar==1.9.1
