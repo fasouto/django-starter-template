@@ -8,7 +8,6 @@ An easy to use project template for Django 1.10 that follows best practices.
 - [Django compressor](http://django-compressor.readthedocs.org/en/latest/) to compress JS and CSS and compile LESS/SASS files.
 - [Django debug toolbar](http://django-debug-toolbar.readthedocs.org/) enabled for superusers.
 - [Argon2](https://docs.djangoproject.com/en/1.10/topics/auth/passwords/#using-argon2-with-django) to hash the passwords
-- A [fabfile](http://www.fabfile.org/) to ease the deployment.
 
 ## Quickstart ##
 
@@ -64,5 +63,5 @@ If you have trouble/can't install a package place it in the `/libs` directory.
  - Once we have webpack upgrade to bootstrap 4
  - Add gitlab.ci
  - Improve tox.ini
- - Improve deployment, get rid of fabric. Investigate feasible options. Maybe add a deploy to heroku/docker cloud.
+ - Add deployment options.
  - Add some example code and tests.

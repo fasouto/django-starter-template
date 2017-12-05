@@ -1,6 +1,6 @@
 # Based on http://www.kennethreitz.org/essays/a-better-pip-workflow
 
-django
+django==1.10.7
 argon2-cffi
 
 # Templates
@@ -9,16 +9,12 @@ django-compressor
 
 # Database
 psycopg2
-#MySQL-python
 
 # Bcrypt passwords
 bcrypt
 
 # DEVELOPMENT REQUIREMENTS
 django-debug-toolbar
-
-# Deployment
-Fabric
 
 # Documentation
 Sphinx
