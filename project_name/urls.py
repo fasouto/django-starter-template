@@ -15,8 +15,6 @@ sitemaps = {
     # Fill me with sitemaps
 }
 
-admin.autodiscover()
-
 urlpatterns = [
     url(r'', include('base.urls')),
 
