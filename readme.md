@@ -16,7 +16,7 @@ First create and activate your virtualenv, you can use [virtualenvwrapper](https
 
 To create a new Django project (make sure to change `project_name`)
 
-    django-admin.py startproject --template=https://github.com/fasouto/django-starter-template/archive/master.zip --extension=py,md,html,txt,less project_name
+    django-admin.py startproject --template=https://github.com/fasouto/django-starter-template/archive/master.zip --extension=py,md,html,txt project_name
 
 cd to your project and install the dependences
 
@@ -44,12 +44,6 @@ or you can use the `settings` param with runserver:
 
 If you need to add some settings that are specific for your machine, rename the file `local_example.py` to `local_settings.py`. This file it's in .gitignore so the changes won't be tracked.
 
-### Bootstrap ###
-
-[Bootstrap 3](http://getbootstrap.com/css/#less) LESS files are included and compiled with django_compressor. There's an  file `less/app.less` where you should put your CSS to avoid overriding the bootstrap LESS files, so you can update bootstrap easily.
-
-Make sure you have [lessc](http://lesscss.org/#using-less-installation) installed on your production server, for development it uses less.js.
-
 ### Dependencies ###
 
 We are following [Kenneth Reitz's pip workflow](http://www.kennethreitz.org/essays/a-better-pip-workflow) to handle [requirements files](https://pip.readthedocs.org/en/1.1/requirements.html). The `requirements_to_freeze.txt` contains unpinned requirements and `requirements.txt` contains the pinned versions to use in a deployment.
@@ -59,7 +53,6 @@ If you have trouble/can't install a package place it in the `/libs` directory.
 
 ### TODO ###
  - Add webpack with live SASS reloading.
- - Once we have webpack upgrade to bootstrap 4
  - Add gitlab.ci
  - Improve tox.ini
  - Add deployment options.
