@@ -45,6 +45,10 @@ or you can use the `settings` param with runserver:
 
 If you need to add some settings that are specific for your machine, rename the file `local_example.py` to `local_settings.py`. This file it's in .gitignore so the changes won't be tracked.
 
+### Docker ###
+
+This is based on the [following guide](https://docs.docker.com/compose/django/)
+
 
 ### TODO ###
  - Add webpack with live SASS reloading.
