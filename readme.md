@@ -54,5 +54,4 @@ This is based on the [following guide](https://docs.docker.com/compose/django/)
  - Add webpack with live SASS reloading.
  - Add gitlab.ci
  - Improve tox.ini
- - Add deployment options.
  - Add some example code and tests.
