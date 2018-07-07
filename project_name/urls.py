@@ -48,7 +48,7 @@ if settings.DEBUG:
 
     # Show error pages during development
     urlpatterns += [
-        path(r'403/', permission_denied),
-        path(r'404/', page_not_found),
-        path(r'500/', server_error)
+        path('403/', permission_denied),
+        path('404/', page_not_found),
+        path('500/', server_error)
     ]

@@ -17,8 +17,7 @@ path.append(BASE_DIR)
 # This directory contains the django project, apps, libs, etc...
 PROJECT_ROOT = os.path.dirname(BASE_DIR)
 
-# Add apps and libs to the PROJECT_ROOT
-path.append(os.path.join(PROJECT_ROOT, "apps"))
+# Add libs to the PROJECT_ROOT
 path.append(os.path.join(PROJECT_ROOT, "libs"))
 
 
@@ -48,7 +47,7 @@ INSTALLED_APPS = [
     'compressor',
 
     # Local apps
-    'apps.base',
+    'apps.base.apps.BaseAppConfig',
 ]
 
 # https://docs.djangoproject.com/en/2.0/topics/auth/passwords/#using-argon2-with-django
