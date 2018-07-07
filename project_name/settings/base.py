@@ -10,7 +10,7 @@ import os
 
 # PATHS
 # Path containing the django project
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 path.append(BASE_DIR)
 
 # Path of the top level directory.
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'compressor',
 
     # Local apps
-    'apps.base',
+    'base',
 ]
 
 # https://docs.djangoproject.com/en/2.0/topics/auth/passwords/#using-argon2-with-django
