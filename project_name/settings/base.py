@@ -17,7 +17,7 @@ path.append(BASE_DIR)
 # This directory contains the django project, apps, libs, etc...
 PROJECT_ROOT = os.path.dirname(BASE_DIR)
 
-# Add apps and libs to the PROJECT_ROOT
+# Add libs and apps to the PROJECT_ROOT
 path.append(os.path.join(PROJECT_ROOT, "apps"))
 path.append(os.path.join(PROJECT_ROOT, "libs"))
 

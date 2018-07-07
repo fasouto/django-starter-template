@@ -15,11 +15,22 @@ Make sure you have [pipenv installed](https://docs.pipenv.org/install.html). The
 
     pip install django==2.0
 
+
 To create a new Django project (make sure to change `project_name`)
 
     django-admin.py startproject --template=https://github.com/fasouto/django-starter-template/archive/master.zip --extension=py,md,html,txt project_name
 
 cd to your project and install the development dependences
+
+- Linux - cd to directory and:
+
+      pipsetup.py
+
+- Windows 
+ 
+      python pipsetup.py
+
+or 
 
     pipenv install --dev
 

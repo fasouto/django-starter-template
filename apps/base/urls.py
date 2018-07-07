@@ -1,10 +1,10 @@
-"""urlconf for the base application"""
+"""urlconf for the {{ project_name }} application"""
 
-from django.conf.urls import url
+from django.urls import path
 
 from .views import home
 
 
 urlpatterns = [
-    url(r'^$', home, name='home'),
+    path('', home, name='home'),
 ]
