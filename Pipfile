@@ -7,7 +7,7 @@ name = "pypi"
 
 [packages]
 
-django = "==2.0.12"
+django = "==2.2.13"
 "argon2-cffi" = "*"
 django-compressor = "*"
 "psycopg2" = "*"
