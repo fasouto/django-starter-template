@@ -2,7 +2,7 @@
 
 A production-ready Django 5.2 LTS starter template for [Railway](https://railway.com).
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/TODO)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/o5iiJy?referralCode=iZa9TM)
 
 ## Deploy to Railway
 
