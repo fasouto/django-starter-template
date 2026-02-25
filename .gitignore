@@ -1,10 +1,17 @@
 ## Python
 *.py[co]
+__pycache__/
 *.egg*
 .coverage
 
+## Virtual environment
+.venv/
+
+## Environment
+.env
+
 ## Project
-local_settings.py
+staticfiles/
 public/static
 public/media
 
@@ -17,9 +24,6 @@ public/media
 Thumbs.db
 Desktop.ini
 
-## Sphinx
-build
-
 ## Logs
 *.log
 
@@ -29,13 +33,6 @@ build
 *.swp
 *.swo
 .idea/
+.vscode/
 *~
 \#*\#
-/.emacs.desktop
-/.emacs.desktop.lock
-.elc
-auto-save-list
-.buildpath
-.project
-.settings
-.pydevproject

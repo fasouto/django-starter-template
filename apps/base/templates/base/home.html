@@ -1,5 +1,37 @@
-{% templatetag openblock %} extends 'base.html' {% templatetag closeblock %}
+{% extends 'base.html' %}
+{% load static %}
 
-{% templatetag openblock %} block content {% templatetag closeblock %}
-    <p>Welcome, start editing this template in <code>apps/base/templates/base/home.html</code></p>
-{% templatetag openblock %} endblock {% templatetag closeblock %}
+{% block title %}Django Starter Template{% endblock %}
+
+{% block content %}
+<div class="hero">
+  <img src="{% static 'img/django-pony.png' %}" alt="Django Pony" class="hero-logo">
+  <h1>Your Django app is running!</h1>
+  <p class="hero-subtitle">
+    Powered by <a href="https://www.djangoproject.com/" target="_blank" rel="noopener">Django {{ django_version }}</a>
+    &middot; Python {{ python_version }}
+  </p>
+</div>
+
+<div class="checklist">
+  <h2>Next steps</h2>
+  <ul>
+    {% for label, hint, done in checklist %}
+    <li class="{% if done %}done{% endif %}">
+      <span class="check">{% if done %}&#10003;{% else %}&#10005;{% endif %}</span>
+      <div>
+        <span class="check-label">{{ label }}</span>
+        {% if not done %}<span class="check-hint">{{ hint|safe }}</span>{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="quick-links">
+  <a href="/admin/">Admin Panel</a>
+  <a href="/health/">Health Check</a>
+  <a href="https://docs.djangoproject.com/en/5.2/" class="outline" target="_blank" rel="noopener">Django Docs</a>
+  <a href="https://docs.railway.com/" class="outline" target="_blank" rel="noopener">Railway Docs</a>
+</div>
+{% endblock %}
