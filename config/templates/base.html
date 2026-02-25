@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Django Starter{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="icon" href="{% static 'favicon.ico' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-brand">Django Starter Template</a>
+      <div class="nav-links">
+        <a href="https://github.com/fasouto/django-starter-template" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
