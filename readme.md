@@ -1,4 +1,8 @@
-# django-starter-template
+<p align="center">
+  <img src="config/static/img/django-pony.png" alt="Django Pony" width="80">
+</p>
+
+<h1 align="center">Django Starter Template</h1>
 
 A production-ready Django 5.2 LTS starter template for [Railway](https://railway.com).
 
@@ -116,16 +120,16 @@ Open [http://localhost:8000](http://localhost:8000). Code changes reload automat
 
 ## What's Included
 
-- **[Django 5.2 LTS](https://docs.djangoproject.com/en/5.2/)** — supported until April 2028
-- **[PostgreSQL](https://www.postgresql.org/)** via psycopg3 — modern async-capable adapter
-- **[WhiteNoise](https://whitenoise.readthedocs.io/)** — serve static files without nginx, with brotli compression
-- **[django-environ](https://django-environ.readthedocs.io/)** — configure via environment variables and `.env` files
-- **[Argon2](https://docs.djangoproject.com/en/5.2/topics/auth/passwords/#using-argon2-with-django)** — password hashing (winner of the Password Hashing Competition)
-- **Split settings** — separate development and production configurations
-- **Health check** — `/health/` endpoint returns JSON for Railway monitoring
-- **[django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/)** — SQL queries, templates, cache inspection (dev only)
-- **[ruff](https://docs.astral.sh/ruff/)** — linting and formatting
-- **[pytest](https://docs.pytest.org/) + [pytest-django](https://pytest-django.readthedocs.io/)** — testing
+- **[Django 5.2 LTS](https://docs.djangoproject.com/en/5.2/)**: supported until April 2028
+- **[PostgreSQL](https://www.postgresql.org/)** via psycopg3, modern async-capable adapter
+- **[WhiteNoise](https://whitenoise.readthedocs.io/)**: serve static files without nginx, with brotli compression
+- **[django-environ](https://django-environ.readthedocs.io/)**: configure via environment variables and `.env` files
+- **[Argon2](https://docs.djangoproject.com/en/5.2/topics/auth/passwords/#using-argon2-with-django)** password hashing (winner of the Password Hashing Competition)
+- **Split settings** for separate development and production configurations
+- **Health check** at `/health/`, returns JSON for Railway monitoring
+- **[django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/)**: SQL queries, templates, cache inspection (dev only)
+- **[ruff](https://docs.astral.sh/ruff/)** for linting and formatting
+- **[pytest](https://docs.pytest.org/) + [pytest-django](https://pytest-django.readthedocs.io/)** for testing
 
 ## Customization
 
@@ -148,4 +152,4 @@ Add `celery[redis]` to your dependencies, create `config/celery.py`, and add a R
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).

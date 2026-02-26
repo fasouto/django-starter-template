@@ -14,7 +14,7 @@
 </div>
 
 <div class="checklist">
-  <h2>Next steps</h2>
+  <h2>Status</h2>
   <ul>
     {% for label, hint, done in checklist %}
     <li class="{% if done %}done{% endif %}">
@@ -26,6 +26,7 @@
     </li>
     {% endfor %}
   </ul>
+  <p class="hint">To get started, edit <code>apps/base/templates/base/home.html</code></p>
 </div>
 
 <div class="quick-links">
