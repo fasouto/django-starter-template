@@ -21,13 +21,10 @@ def home(request):
     secret_changed = secret_key not in ("django-insecure-dev-key-change-me", "build-time-placeholder", "change-me-to-a-random-string")
     rv = '<a href="https://docs.railway.com/variables" target="_blank">Railway variables</a>'
     checklist = [
-        ("Database connected", "Set DATABASE_URL in .env or {}".format(rv), db_ok),
-        ("PostgreSQL configured", "Use postgres:// instead of sqlite:///", db_is_postgres),
+        ("Database", "Set DATABASE_URL in .env or {}".format(rv), db_ok and (db_is_postgres or settings.DEBUG)),
         ("SECRET_KEY changed", "Set a unique key in .env or {}".format(rv), secret_changed),
         ("DEBUG is off", "Set DEBUG=False in production", not settings.DEBUG),
-        ("Set ALLOWED_HOSTS", "Add your domain to ALLOWED_HOSTS in {}".format(rv), not settings.DEBUG and len(settings.ALLOWED_HOSTS) > 0),
-        ("Configure CSRF_TRUSTED_ORIGINS", "Add https://yourdomain to CSRF_TRUSTED_ORIGINS in {}".format(rv), len(settings.CSRF_TRUSTED_ORIGINS) > 0 if hasattr(settings, "CSRF_TRUSTED_ORIGINS") else False),
-        ("Edit this page", "apps/base/templates/base/home.html", False),
+        ("ALLOWED_HOSTS set", "Add your domain to ALLOWED_HOSTS in {}".format(rv), not settings.DEBUG and len(settings.ALLOWED_HOSTS) > 0),
     ]
 
     return render(
