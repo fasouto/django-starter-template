@@ -3,7 +3,7 @@ name = "django-starter"
 version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
-    "django>=5.2,<5.3",
+    "django>=5.2.13,<5.3",
     "gunicorn>=22.0",
     "psycopg[binary,pool]>=3.1",
     "whitenoise[brotli]>=6.7",
