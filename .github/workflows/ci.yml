@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --locked --dev
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
+      SECRET_KEY: ci-only-secret-key-that-is-long-enough-to-satisfy-the-deploy-check-0123456789
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --locked --dev
+      - name: Check for missing migrations
+        run: uv run python manage.py makemigrations --check --dry-run --settings=config.settings.development
+      - name: Django deploy checks
+        run: uv run python manage.py check --deploy --fail-level WARNING --settings=config.settings.production
+        env:
+          ALLOWED_HOSTS: example.com
+      - name: Collect static files
+        run: uv run python manage.py collectstatic --noinput --settings=config.settings.production
+      - name: Run tests
+        run: uv run coverage run -m pytest -p no:cacheprovider
+      - run: uv run coverage report

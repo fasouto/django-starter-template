@@ -4,7 +4,8 @@ buildCommand = "python manage.py collectstatic --noinput"
 
 [deploy]
 preDeployCommand = "python manage.py migrate --noinput"
-startCommand = "gunicorn config.wsgi --bind 0.0.0.0:$PORT"
+# Reads gunicorn.conf.py from the project root (workers, threads, logging, PORT).
+startCommand = "gunicorn config.wsgi"
 healthcheckPath = "/health/"
 healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
