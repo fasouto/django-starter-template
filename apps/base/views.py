@@ -6,6 +6,13 @@ from django.db import connection
 from django.http import JsonResponse
 from django.shortcuts import render
 
+PLACEHOLDER_SECRET_KEYS = {
+    "django-insecure-dev-key-change-me",
+    "build-time-placeholder",
+    "change-me-to-a-random-string",
+}
+RAILWAY_VARIABLES_LINK = '<a href="https://docs.railway.com/variables" target="_blank">Railway variables</a>'
+
 
 def home(request):
     db_ok = False
@@ -14,17 +21,30 @@ def home(request):
         connection.ensure_connection()
         db_ok = True
         db_is_postgres = connection.vendor == "postgresql"
-    except Exception:
+    except Exception:  # noqa: S110 - the checklist reports the failure, no need to log here
         pass
 
-    secret_key = settings.SECRET_KEY
-    secret_changed = secret_key not in ("django-insecure-dev-key-change-me", "build-time-placeholder", "change-me-to-a-random-string")
-    rv = '<a href="https://docs.railway.com/variables" target="_blank">Railway variables</a>'
     checklist = [
-        ("Database", "Set DATABASE_URL in .env or {}".format(rv), db_ok and (db_is_postgres or settings.DEBUG)),
-        ("SECRET_KEY changed", "Set a unique key in .env or {}".format(rv), secret_changed),
-        ("DEBUG is off", "Set DEBUG=False in production", not settings.DEBUG),
-        ("ALLOWED_HOSTS set", "Add your domain to ALLOWED_HOSTS in {}".format(rv), not settings.DEBUG and len(settings.ALLOWED_HOSTS) > 0),
+        (
+            "Database",
+            f"Set DATABASE_URL in .env or {RAILWAY_VARIABLES_LINK}",
+            db_ok and (db_is_postgres or settings.DEBUG),
+        ),
+        (
+            "SECRET_KEY changed",
+            f"Set a unique key in .env or {RAILWAY_VARIABLES_LINK}",
+            settings.SECRET_KEY not in PLACEHOLDER_SECRET_KEYS,
+        ),
+        (
+            "DEBUG is off",
+            "Set DJANGO_SETTINGS_MODULE=config.settings.production",
+            not settings.DEBUG,
+        ),
+        (
+            "ALLOWED_HOSTS set",
+            f"Add your domain to ALLOWED_HOSTS in {RAILWAY_VARIABLES_LINK}",
+            not settings.DEBUG and len(settings.ALLOWED_HOSTS) > 0,
+        ),
     ]
 
     return render(
@@ -44,5 +64,5 @@ def health_check(request):
         with connection.cursor() as cursor:
             cursor.execute("SELECT 1")
         return JsonResponse({"status": "ok", "database": "ok"})
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         return JsonResponse({"status": "error", "database": str(e)}, status=500)

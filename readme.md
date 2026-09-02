@@ -4,7 +4,7 @@
 
 <h1 align="center">Django Starter Template</h1>
 
-A production-ready Django 5.2 LTS starter template for [Railway](https://railway.com).
+A production-ready Django 5.2 LTS starter template for [Railway](https://railway.com). Python 3.13, PostgreSQL, gunicorn, WhiteNoise, `uv`, CI included, and written so that both people and AI coding agents can build on it.
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/django-starter-template?referralCode=iZa9TM&utm_medium=integration&utm_source=template&utm_campaign=generic)
 
@@ -28,17 +28,21 @@ These are set automatically by Railway. Override them in your service settings i
 |----------|-------------|---------|
 | `SECRET_KEY` | Django secret key | Auto-generated |
 | `DATABASE_URL` | PostgreSQL connection string | Provided by Railway |
-| `ALLOWED_HOSTS` | Comma-separated hostnames | `.railway.app` |
-| `CSRF_TRUSTED_ORIGINS` | Full URLs for POST requests (e.g. `https://myapp.up.railway.app`) | `[]` |
+| `ALLOWED_HOSTS` | Extra comma-separated hostnames | `.railway.app` + your Railway domain |
+| `CSRF_TRUSTED_ORIGINS` | Extra full URLs for POST requests (e.g. `https://example.com`) | `https://<your Railway domain>` |
 | `DJANGO_SETTINGS_MODULE` | Settings module | `config.settings.production` |
+| `WEB_CONCURRENCY` | gunicorn worker processes | `min(2 x CPU + 1, 4)` |
+| `GUNICORN_THREADS` | threads per worker | `2` |
 
-**Important:** If you add a custom domain, add it to both `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS` (with `https://` prefix). Without `CSRF_TRUSTED_ORIGINS`, POST requests (login, admin, forms) will return 403.
+Railway injects `RAILWAY_PUBLIC_DOMAIN`, and the production settings add it to `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS` for you, so login, admin, and forms work on the generated `*.up.railway.app` domain with zero configuration.
+
+**Custom domains:** add the domain to `ALLOWED_HOSTS` and `https://yourdomain.com` to `CSRF_TRUSTED_ORIGINS`. Without the latter, POST requests (login, admin, forms) return 403.
 
 ## Local Development
 
 ### Option A: uv (recommended)
 
-Prerequisites: [Python 3.12+](https://python.org), [uv](https://docs.astral.sh/uv/getting-started/installation/)
+Prerequisites: [Python 3.13+](https://python.org), [uv](https://docs.astral.sh/uv/getting-started/installation/)
 
 ```bash
 git clone https://github.com/fasouto/django-starter-template.git
@@ -64,8 +68,8 @@ Open [http://localhost:8000](http://localhost:8000). The admin panel is at [http
 # Run tests
 uv run pytest
 
-# Lint and format
-uv run ruff check .
+# Lint and format (CI enforces both)
+uv run ruff check --fix .
 uv run ruff format .
 ```
 
@@ -79,12 +83,12 @@ cd django-starter-template
 
 cp .env.example .env
 
-# Start Django + PostgreSQL
+# Start Django + PostgreSQL 17
 docker compose up
 
 # In another terminal:
-docker compose exec web uv run python manage.py migrate
-docker compose exec web uv run python manage.py createsuperuser
+docker compose exec web python manage.py migrate
+docker compose exec web python manage.py createsuperuser
 ```
 
 Open [http://localhost:8000](http://localhost:8000). Code changes reload automatically.
@@ -93,6 +97,10 @@ Open [http://localhost:8000](http://localhost:8000). Code changes reload automat
 
 ```
 .
+├── .github/
+│   ├── workflows/ci.yml     # Lint, tests on Postgres, deploy checks, migration check
+│   └── dependabot.yml       # Weekly grouped dependency updates
+├── AGENTS.md                # Instructions for AI coding agents (CLAUDE.md points here)
 ├── apps/
 │   └── base/                # Default app (home page, health check, tests)
 │       ├── templates/base/  # App templates
@@ -112,6 +120,7 @@ Open [http://localhost:8000](http://localhost:8000). Code changes reload automat
 │   └── wsgi.py
 ├── docker-compose.yml       # Local dev with Docker (Django + Postgres)
 ├── Dockerfile.dev           # Dev container
+├── gunicorn.conf.py         # Production server: workers, threads, logging, PORT
 ├── pyproject.toml           # Dependencies and tool config
 ├── railway.toml             # Railway deployment config
 ├── uv.lock                  # Locked dependencies
@@ -127,9 +136,18 @@ Open [http://localhost:8000](http://localhost:8000). Code changes reload automat
 - **[Argon2](https://docs.djangoproject.com/en/5.2/topics/auth/passwords/#using-argon2-with-django)** password hashing (winner of the Password Hashing Competition)
 - **Split settings** for separate development and production configurations
 - **Health check** at `/health/`, returns JSON for Railway monitoring
+- **Tuned gunicorn** (`gunicorn.conf.py`): threaded workers sized for Railway plans, access logs to stdout, proxy headers trusted, all overridable via env vars
+- **Zero-config hosts on Railway**: `RAILWAY_PUBLIC_DOMAIN` feeds `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS`
+- **GitHub Actions CI**: ruff, pytest against Postgres 17, `check --deploy`, and a missing-migrations check on every PR
+- **Dependabot** for Python, Actions, and Docker base images
+- **AGENTS.md**: commands, layout, and conventions for AI coding agents, so Claude Code, Codex, Cursor, or Copilot extend the project the right way
 - **[django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/)**: SQL queries, templates, cache inspection (dev only)
 - **[ruff](https://docs.astral.sh/ruff/)** for linting and formatting
 - **[pytest](https://docs.pytest.org/) + [pytest-django](https://pytest-django.readthedocs.io/)** for testing
+
+## Working with AI coding agents
+
+The repo ships an `AGENTS.md` (with `CLAUDE.md` pointing at it) that tells agents how to run, test, lint, and deploy the project, plus the conventions to follow when adding apps, settings, or dependencies. Open the project in Claude Code, Codex, Cursor, or Copilot and ask for a feature; the agent gets the right commands and layout without you explaining the template first. CI runs the same checks the agent is told to run, so a green pull request means the change is deployable to Railway.
 
 ## Customization
 
@@ -140,7 +158,7 @@ mkdir apps/myapp
 uv run python manage.py startapp myapp apps/myapp
 ```
 
-Then add `"myapp"` to `INSTALLED_APPS` in `config/settings/base.py`.
+Then add `"apps.myapp"` to `INSTALLED_APPS` in `config/settings/base.py`, set `name = "apps.myapp"` in the generated `AppConfig`, and include its URLs in `config/urls.py`. Apps are imported as `apps.myapp`.
 
 ### Replacing the CSS
 

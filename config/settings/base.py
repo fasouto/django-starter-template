@@ -2,7 +2,6 @@
 Base settings shared across all environments.
 """
 
-import sys
 from pathlib import Path
 
 import environ
@@ -12,8 +11,6 @@ env = environ.Env()
 # PATHS
 BASE_DIR = Path(__file__).resolve().parent.parent  # config/
 PROJECT_ROOT = BASE_DIR.parent  # project root
-
-sys.path.append(str(PROJECT_ROOT / "apps"))
 
 # GENERAL
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -33,7 +30,7 @@ INSTALLED_APPS = [
     "django.contrib.humanize",
     "django.contrib.staticfiles",
     # Local apps
-    "base",
+    "apps.base",
 ]
 
 # PASSWORD HASHING

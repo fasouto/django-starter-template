@@ -4,10 +4,10 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic.base import TemplateView
 
-from base.views import health_check
+from apps.base.views import health_check
 
 urlpatterns = [
-    path("", include("base.urls")),
+    path("", include("apps.base.urls")),
     path("admin/doc/", include("django.contrib.admindocs.urls")),
     path("admin/", admin.site.urls),
     path("health/", health_check),
