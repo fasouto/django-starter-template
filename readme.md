@@ -1,4 +1,6 @@
 <p align="center">
+
+[![Deploy to Railyard](https://app.railyard.run/deploy/badge)](https://app.railyard.run/deploy?repo=https://github.com/fasouto/django-starter-template)
   <img src="config/static/img/django-pony.png" alt="Django Pony" width="80">
 </p>
 
