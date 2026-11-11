@@ -34,6 +34,8 @@ These are set automatically by Railway. Override them in your service settings i
 | `WEB_CONCURRENCY` | gunicorn worker processes | `min(2 x CPU + 1, 4)` |
 | `GUNICORN_THREADS` | threads per worker | `2` |
 
+The app refuses to start in production without a real `SECRET_KEY`. The Railway template generates one, but a deploy straight from the repo must set it (for example `openssl rand -hex 32`).
+
 Railway injects `RAILWAY_PUBLIC_DOMAIN`, and the production settings add it to `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS` for you, so login, admin, and forms work on the generated `*.up.railway.app` domain with zero configuration.
 
 **Custom domains:** add the domain to `ALLOWED_HOSTS` and `https://yourdomain.com` to `CSRF_TRUSTED_ORIGINS`. Without the latter, POST requests (login, admin, forms) return 403.

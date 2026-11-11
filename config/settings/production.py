@@ -5,7 +5,7 @@ DEBUG = False
 
 # SECRET_KEY has a build-time fallback so collectstatic can run during
 # the Railpack build phase (before env vars are injected).
-# At runtime the real key is always required via the environment variable.
+# Runtime enforcement lives in config/startup.py, called from wsgi.py and asgi.py.
 SECRET_KEY = env("SECRET_KEY", default="build-time-placeholder")
 
 DATABASES = {

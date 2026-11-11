@@ -1,3 +1,4 @@
+import logging
 import sys
 
 import django
@@ -6,11 +7,10 @@ from django.db import connection
 from django.http import JsonResponse
 from django.shortcuts import render
 
-PLACEHOLDER_SECRET_KEYS = {
-    "django-insecure-dev-key-change-me",
-    "build-time-placeholder",
-    "change-me-to-a-random-string",
-}
+from config.startup import PLACEHOLDER_SECRET_KEYS
+
+logger = logging.getLogger(__name__)
+
 RAILWAY_VARIABLES_LINK = '<a href="https://docs.railway.com/variables" target="_blank">Railway variables</a>'
 
 
@@ -64,5 +64,6 @@ def health_check(request):
         with connection.cursor() as cursor:
             cursor.execute("SELECT 1")
         return JsonResponse({"status": "ok", "database": "ok"})
-    except Exception as e:  # noqa: BLE001
-        return JsonResponse({"status": "error", "database": str(e)}, status=500)
+    except Exception:
+        logger.exception("Health check database query failed")
+        return JsonResponse({"status": "error", "database": "error"}, status=500)
