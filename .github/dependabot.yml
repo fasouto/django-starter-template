@@ -7,6 +7,10 @@ updates:
     groups:
       python-deps:
         patterns: ["*"]
+    ignore:
+      # Stay on the 5.2 LTS line; Django 6.x is not a long-term support release.
+      - dependency-name: "django"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -15,3 +19,7 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    ignore:
+      # Must match .python-version (3.13); Python bumps are made by hand.
+      - dependency-name: "python"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
