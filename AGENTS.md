@@ -34,6 +34,7 @@ apps/<name>/         Django apps. Import as `apps.<name>`, register as "apps.<na
 config/settings/     base.py (shared) -> development.py / production.py
 config/templates/    Project templates: base.html, 403/404/500.html, robots.txt
 config/static/       Project static files (css/base.css, js/app.js, img/)
+config/startup.py    Runtime guard: refuses to boot in production on a placeholder SECRET_KEY
 config/urls.py       Root URLconf; includes apps.base.urls, admin, /health/
 gunicorn.conf.py     Production server config (workers, threads, logging, PORT)
 railway.toml         Railway build/deploy: collectstatic at build, migrate pre-deploy
